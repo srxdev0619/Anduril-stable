@@ -53,7 +53,7 @@ This method trains the neural network using resilient backpropogation. If `mode`
 Anduril.test_file(filename,netname = " ", sep1 = ",", sep2 = " ")
 ```
 
-This method allows the user to upload a file to test the neural network against.  The variable `netname` is used to specify the network against which the file should be tested, if left to the default value it is tested against the net already loaded. If verbose equals 1 more detailed output is produced giving the RMSE and accuracy as applicable after each training iteration.
+This method allows the user to upload a file to test the neural network against.  The variable `netname` is used to specify the network against which the file should be tested, if left to the default value it is tested against the net already loaded.
 
 
 
