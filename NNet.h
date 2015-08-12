@@ -46,6 +46,7 @@ class NNet
   void testvoids(int mode);
   void l_funcarch(void);
  private:
+  int tmode;
   //Variables
   // stores the architecture of hidden layers in a array
   int trained;
@@ -187,15 +188,7 @@ BOOST_PYTHON_MEMBER_FUNCTION_OVERLOADS(NNet_overloads1,load,1,4)
 BOOST_PYTHON_MEMBER_FUNCTION_OVERLOADS(NNet_overloads2,test_file,1,4)
 BOOST_PYTHON_MEMBER_FUNCTION_OVERLOADS(NNet_overloads3,train_net,1,3)
 BOOST_PYTHON_MEMBER_FUNCTION_OVERLOADS(NNet_overloads4,test_net,0,1)
-BOOST_PYTHON_MEMBER_FUNCTION_OVERLOADS(NNet_overloads5,l_load,0,3)
-BOOST_PYTHON_MEMBER_FUNCTION_OVERLOADS(NNet_overloads6,l_init,5,6)
-BOOST_PYTHON_MEMBER_FUNCTION_OVERLOADS(NNet_overloads7,l_trainnet,1,3)
-BOOST_PYTHON_MEMBER_FUNCTION_OVERLOADS(NNet_overloads8,test_data,3,4)
-BOOST_PYTHON_MEMBER_FUNCTION_OVERLOADS(NNet_overloads9,l_trainrprop,1,4)
 BOOST_PYTHON_MEMBER_FUNCTION_OVERLOADS(NNet_overloads10,train_rprop,0,3)
-BOOST_PYTHON_MEMBER_FUNCTION_OVERLOADS(NNet_overloads11,ls_init,4,5)
-BOOST_PYTHON_MEMBER_FUNCTION_OVERLOADS(NNet_overloads12,ls_load,1,4)
-BOOST_PYTHON_MEMBER_FUNCTION_OVERLOADS(NNet_overloads13,ld_trainrprop,1,4)
 BOOST_PYTHON_MEMBER_FUNCTION_OVERLOADS(NNet_overloads14,d_trainrprop,0,3)
 
 
@@ -213,19 +206,7 @@ BOOST_PYTHON_MODULE(NNet)
     .def("savenet", &NNet::savenet)
     .def("loadnet",&NNet::loadnet)
     .def("snets",&NNet::snets)
-    .def("l_savenet",&NNet::l_savenet)
-    .def("ls_savenet",&NNet::ls_savenet)
-    .def("l_load",&NNet::l_load,NNet_overloads5())
-    .def("l_init",&NNet::l_init,NNet_overloads6())
-    .def("l_trainnet", &NNet::l_trainnet,NNet_overloads7())
-    .def("test_data", &NNet::test_data,NNet_overloads8())
-    .def("l_trainrprop",&NNet::l_trainrprop,NNet_overloads9())
     .def("train_rprop",&NNet::train_rprop,NNet_overloads10())
-    .def("testvoids", &NNet::testvoids)
-    .def("l_funcarch", &NNet::l_funcarch)
-    .def("ls_init",&NNet::ls_init,NNet_overloads11())
-    .def("ls_load",&NNet::ls_load,NNet_overloads12())
-    .def("ld_trainrprop",&NNet::ld_trainrprop,NNet_overloads13())
     .def("d_trainrprop",&NNet::train_rprop,NNet_overloads14())
     ;
 }
