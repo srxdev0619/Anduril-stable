@@ -33,25 +33,25 @@ class Anduril():
             print "Invalid input type!"
             return
 
-    def train_net(self,lrate, mode = 0, verbose = 0):
-        if (type(lrate) == float) and (type(mode) == int) and (type(verbose) == int):
-            self.Net.train_net(lrate,mode,verbose)
+    def train_net(self,lrate, mode = 1, verbose = 1, logfile = " "):
+        if (type(lrate) == float) and (type(mode) == int) and (type(verbose) == int) and (type(logfile) == str):
+            self.Net.train_net(lrate,mode,verbose,logfile)
             return
         else:
             print "Invalid input, network not trained!"
             return
 
-    def train_rprop(self,mode = 0, verbose = 0, tmax = 15.0):
-        if (type(mode) == int) and (type(verbose) == int) and (type(tmax) == float):
-            self.Net.train_rprop(mode,verbose,tmax)
+    def train_rprop(self,mode = 1, verbose = 1, logfile = " ",tmax = 1.0):
+        if (type(mode) == int) and (type(verbose) == int) and (type(logfile) == str) and (type(tmax) == float):
+            self.Net.train_rprop(mode,verbose,logfile,tmax)
             return
         else:
             print "Invalid input, network not trained!"
             return
 
-    def d_trainrprop(self,mode = 0, verbose = 0, tmax = 15.0):
-        if (type(mode) == int) and (type(verbose) == int) and (type(tmax) == float):
-            self.Net.d_trainrprop(mode,verbose,tmax)
+    def d_trainrprop(self,mode = 0, verbose = 0, logfile = " ", tmax = 1.0):
+        if (type(mode) == int) and (type(verbose) == int) and (type(logfile) == str) and (type(tmax) == float):
+            self.Net.d_trainrprop(mode,verbose,logfile,tmax)
             return
         else:
             print "Invalid input, network not trained!"
@@ -84,16 +84,3 @@ class Anduril():
     def snets(self):
         self.Net.snets()
         return
-
-    
-    def test_data(self,in_filename, out_filename, netname, sep = ","):
-        if (type(in_filename) == str) and (type(out_filename) == str) and (type(netname) == str) and (type(sep) == str):
-            self.Net.test_data(in_filename, out_filename, netname, sep)
-            return
-        else:
-            print "Invalid input!"
-            return
-
-
-    
-             
