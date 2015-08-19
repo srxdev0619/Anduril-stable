@@ -49,7 +49,7 @@ class Anduril():
             print "Invalid input, network not trained!"
             return
 
-    def d_trainrprop(self,mode = 0, verbose = 0, logfile = " ", tmax = 1.0):
+    def d_trainrprop(self,mode = 1, verbose = 1, logfile = " ", tmax = 1.0):
         if (type(mode) == int) and (type(verbose) == int) and (type(logfile) == str) and (type(tmax) == float):
             self.Net.d_trainrprop(mode,verbose,logfile,tmax)
             return
