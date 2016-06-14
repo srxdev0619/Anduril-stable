@@ -1,0 +1,158 @@
+
+#phy105
+{
+    position:absolute;
+    display:inline-block;
+    top:0%;
+    left:10%;
+    height:27%;
+    width:100%;
+}
+
+#phy105 img
+{
+    width:auto;
+    height:100%;
+}
+.phyhead
+{
+    position:relative;
+    left:0%;
+    top:0%;
+    height:100%;
+    width:100%;
+    font-family:"Times New Roman", Times, serif;
+    font-size:13em;
+    color:#523A24;
+}
+#phybreak
+{
+    position:absolute;
+    top:27%;
+    height:0.3%;
+    left:10%;
+    width:80%;
+    background-color:#949494;
+}
+
+#phyopt
+{
+    position:absolute;
+    top:27%;
+    width:15%;
+    left:10%;
+}
+.s
+{
+    color: orange;
+}
+.c
+{
+    color: purple;
+}
+.v
+{
+    color:blue;
+}
+.b
+{
+    color: black;
+    font-family: "Monospace",Monospace;
+    font-weight:bold;
+}
+.spot
+{
+    margin:0;
+    padding:0;
+}
+.optphy
+{
+    position:relative;
+    margin:0%;
+    top:0%;
+    left:0%;
+    width:65%;
+    list-style:none;
+    font-family:"Trebuchet MS", Helvetica, sans-serif;
+    color:#523A24;
+    font-size:17px;
+    font-weight:bold;
+    border-right:0px solid #949494;
+    border-bottom:1px solid #949494;
+    border-right:0px solid #949494;
+    padding-left:0px;
+    padding-top:20px;
+    padding-right:2px;
+    padding-bottom:20px;
+    text-align:center;
+}
+.optphy:hover
+{
+    background-color:#523A24;
+    color:white;
+}
+
+
+.cdiv
+{
+    position:absolute;
+    top:27.3%;
+    left:18.5%;
+    padding-right:30px;
+    padding-left:10px;
+    width:68%;
+}
+.tdiv
+{
+    position:relative;
+    left:5%;
+    padding-left:10px;
+    font-family: "Trebuchet MS",Helvetica, sans-serif;
+    font-size:16px;
+    font-weight:100;
+    color:#000000;
+}
+
+.phystr
+{
+    color:green;
+}
+.ansphy
+{
+    color:blue;
+}
+.phyidle
+{
+    background-color:white;
+    font-size: 1.1em;
+    font-family: "Monospace",Monospace;
+    font-weight:Regular;
+    text-align: left;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 1px;
+}
+.comment
+{
+    color:red;
+    font-size:14px;
+    position:absolute;
+    left:30%;
+    width:60%;
+}
+.phycode
+{
+    font-weight:100;
+    font-family:"Lucida Console", Monaco, monospace;
+    font-size:14px;
+
+}
+.error
+{
+    color:red;
+}
+.subhead
+{
+    font-size:20px;
+    font-weight:900;
+}

@@ -1,0 +1,230 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Anduril</title>
+        <link type = "text/css" href = "style1.css" rel = "stylesheet">
+        <script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src = "phy105.js"></script>
+    </head>
+    <body bgcolor = "#ece7dd">
+        <div id = "phy105">
+            <!--<span class = "phyhead">Anduril</span>-->
+            <img src ="/templates/head.png" height = "234">
+        </div>
+        <br>
+        <div id = "phybreak">
+        </div>
+        <div id = "phyopt">
+            <ul class = "spot">
+                <li class = "optphy" id = "abt"><span class = "optphytxt">About</span></li>
+            
+                <li class = "optphy" id = "PDT"><span class = "optphytxt">Documentation</span></li>
+                
+                <li class = "optphy" id = "PPC"><span class = "optphytxt">Examples</span></li>
+                
+                <li class = "optphy" id = "VBOX"><span class = "optphytxt">Publications</span></li>
+            </ul>
+        </div>
+        <br>
+        
+        <div id ="about" class = "cdiv">
+            <div id = "phyabout" class = "tdiv">
+                <h1>Welcome to Anduril</h1>
+                <p>
+                    Anduril is a neural network library for python. It aims to be fast and robust without sacrificing its ease of use.
+                    The code for Anduril is available on <a href = "https://github.com/srxdev0619/Anduril-stable">github</a>.
+                </p>
+                <h2>Installation Instructions</h2>
+                <p>
+                    Anduril has the following dependencies
+                    <ul>
+                        <li>g++</li>
+                        <li>Python 2.7</li>
+                        <li>Armadillo 4</li>
+                        <li>Boost Python</li>
+                    </ul>
+                    <br>
+                    Download the appropriate version of Anduril
+                    <ul>
+                        <li><a href = "https://sourceforge.net/projects/andurilnet/files/Anduril-1.0-32bit.tar.gz/download">32-bit</a></li>
+                        <li><a href = "https://sourceforge.net/projects/andurilnet/files/Anduril-1.0-64bit.tar.gz/download">64-bit</a></li>
+                    </ul>
+                    <br>
+                    Extract the tarball file to the location of your preference. Now, 'cd' into the Anduril directory and execute the following commands:
+                    <br>
+                    <br>
+                    <div class = "phyidle">
+                            $> python config.py
+                            <br>
+                            $> sudo python setup.py install
+                    </div>
+                    <br>
+                    Anduril should now be successfully installed.
+                    <br>
+                    Supported OS: Linux, Unix
+                </p>
+            </div>
+        </div>
+        <div id = "pdt" class = "cdiv">
+            <div id = "pdttxt" class = "tdiv">
+            <h1>Documentation</h1>
+                <h2>Constructor</h2>
+                    <p>
+                    <div class = "phyidle">
+                        <span class = "c">Anduril</span>(<span class = "v">void</span>)
+                    </div>
+                    <br>
+                        The constructor takes no inputs.
+                    </p>
+                <h2>Initializer</h2>
+                    <p>
+                    <div class = "phyidle">
+                        <span class = "c">Anduril.init</span>(sconfig, classreg = <span class = "v">0</span>, numcores = <span class = "v">1</span>, gradd = <span class = "v">0</span>, costfunc = <span class = "v">0</span>)
+                    </div>
+                    <br>
+                        This method is used to initilize the neural network. The architecture is specified by the string <span class = "b">sconfig</span> with <span class = "b">-</span> separated numbers. Anduril automatically detects the number of input and output layers depending on the input file, thus only the architecture of the hidden layers needs to be specified in <span class = "b">sconfig</span>. The user is required to specify what would be the purpose of the neural network, regression or classification. The variable <span class = "b">classreg</span> should be set to 1 for regression and 0 for classification. Using <span class = "b">numcores</span> the user can specify the number of cores at thier disposal, if the number of cores is greater than 1 Anduril would use that to its advantage to perform parallel calculations. They can also decide what gradient descent algorithim they prefer to use, set <span class = "b">gradd</span> to 0 for full-batch gradient descent and 1 for mini-batch gradient descent. For classification one can specify NNet to use the cross entropy cost function which can be done by specifying <span class = "b">costfunc</span> to be 1 (not available yet). By default classification is done using sigmoid activation functions on all the layers and regression by the tanh(x) + 0.1x function. This can be changed using <span class = "b"><span class = "c">Anduril</span>.func_arch(flayer)</span>.
+                    </p>
+                <br>
+                <h2>Loading Methods</h2>
+                    <p>
+                    <div class = "phyidle">
+                        <span class = "c">Anduril</span>.load(filename, mode = <span class = "v">0</span>, sep1 = <span class = "v">","</span>, sep2 = <span class = "v">" "</span>)
+                    </div>
+                    <br>
+                        This method is used to load the file into the network. The filename is specified by <span class = "b">filename</span>. If <span class = "b">mode</span> is 0 then the data is split into training, and test data, if <span class = "b">mode</span> is 1 then the entire file is used for training. This method assumes that the file contains both input and output data where each component of the input and output vector is seperated by the string specified in <span class = "b">sep1</span> and the input and output vectors are seperated by the string specified in <span class = "b">sep2</span>. By default <span class = "b">sep1</span> is a comma (",") and <span class = "b">sep2</span> is a space (" ").
+                    </p>
+                    <br>
+                <h2>Training Methods</h2>
+                    <p>
+                        <div class = "phyidle">
+                        <span class = "c">Anduril</span>.train_net(epoch, lrate, mode = <span class = "v">1</span>, verbose = <span class = "v">1</span>, logfile = <span class = "v">" "</span>)
+                        </div>
+                        <br>
+                        This methods trains the neural network using standard backpropogation, the learning rate is specified by the variable <span class = "b">lrate</span>. <span class = "b">epoch</span> is used to specify the number of epochs for which the network is supposed to be trained. If <span class = "b">mode</span> is set to 1 it gives the current accuracy and/or RMSE of the neural net on the given data set. If <span class = "b">verbose</span> equals 1 more detailed output is produced giving the RMSE and accuracy as applicable after each training iteration.If a log file is specified, the output is stored in a file with the same name and a ".and" extention. This also stores a <i>.dat</i> file which contains the RMSE of each epoch, this file can be opened by a graphing program like <b>Grace</b> to examine the learning curve.
+                        <br>
+                        <i>Note: Logfiles are only saved if <span class = "b">mode = 1</span>.</i>
+                    </p>
+                    <br>
+                    <p>
+                        <div class = "phyidle">
+                        <span class = "c">Anduril</span>.train_rprop(epoch, mode = <span class = "v">1</span>, verbose = <span class = "v">1</span>, logfile = <span class = "v">" "</span>,tmax = <span class = "v">1.0</span>)
+                    </div>
+                        <br>
+                        This method trains the neural network using resilient backpropogation. <span class = "b">epoch</span> is used to specify the number of epochs for which the network is supposed to be trained. If <span class = "b">mode</span> is set to 1 it prints the RMSE and/or accuracy as the net is trained. The variable <span class = "b">tmax</span> sets an upper bound on the amount by which a particular weight can change. If <span class = "b">verbose</span> equals 1 more detailed output is produced giving the RMSE and accuracy as applicable after each training iteration. If a log file is specified, the output is stored in a file with the same name and a ".and" extention. This also stores a <i>.dat</i> file which contains the RMSE of each epoch, this file can be opened by a graphing program like <b>Grace</b> to examine the learning curve.
+                        <br>
+                        <i>Note: Logfiles are only saved if <span class = "b">mode = 1</span>.</i>
+                    </p> 
+                    <br>
+                    <h2>Additional Methods</h2>
+                    <p>
+                        <div class = "phyidle">
+                        <span class = "c">Anduril</span>.func_arch(flayer)
+                        </div>
+                        <br>
+                        The user can specify a very combinations of activation functions for the network by giving thier choice as a string. e.g <span class = "b"><span class = "c">Anduril</span>.func_arch("030")</span> would use the sigmoid function for the first hidden layer, a tanh + linear function for the second hidden layer and sigmoid again for the output layer. The list of available activation functions and thier corresponding numeric values are:
+                        <ul>
+                            <li>0: Sigmoid function</li>
+                            <li>1: Tangent Hyperbolic</li>
+                            <li>2: Rectified Linear</li>
+                            <li>3: Tangent Hyperbolic + Linear</li> 
+                        </ul>
+                    </p>
+                    <br>
+                    <p>
+                        <div class = "phyidle">
+                        <span class = "c">Anduril</span>.test_file(filename,netname = <span class = "v">" "</span>, sep1 = <span class = "v">","</span>, sep2 = <span class = "v">" "</span>)
+                        </div>
+                        <br>
+                        This method allows the user to upload a file to test the neural network against. The variable <span class = "b">netname</span> is used to specify the network against which the file should be tested, if left to the default value it is tested against the net already loaded.
+                    </p>
+                    <br>
+                    <p>
+                        <div class = "phyidle">
+                        <span class = "c">Anduril</span>.test_net(verbose = <span class = "v">0</span>)
+                        </div>
+                        <br>
+                        This method allows the user to test thier neural network on the file uploaded in load. If <span class = "b">verbose</span> equals 1 more detailed output is produced giving the RMSE and accuracy as applicable after each training iteration.
+                    </p>
+                    <br>
+                    <p>
+                        <div class = "phyidle">
+                        <span class = "c">Anduril</span>.savenet(netname)
+                        </div>
+                        <br>
+                        Save the given network with the a name specified in <span class = "b">netname</span>.
+                    </p>
+                    <br>
+                    <p>
+                        <div class = "phyidle">
+                        <span class = "c">Anduril</span>.loadnet(netname)
+                        </div>
+                        <br>
+                        Load the neural network saved with the name specified in <span class = "b">netname</span>.
+                    </p>
+                    <br>
+                    <p>
+                        <div class = "phyidle">
+                        <span class = "c">Anduril</span>.snets()
+                        </div>
+                        <br>
+                        View all saved neural networks in the given directory.
+                    </p>
+                </div>
+        </div>
+        <div id = "ppc" class = "cdiv">
+            <div id = "ppctxt" class = "tdiv">
+                <h1>Examples</h1>
+                <p>
+                    To start using Anduril just import it as follows:
+                    <div class = "phyidle">
+                            >>> <span class = "s">from</span> Anduril <span class = "s">import</span> *               
+                    </div>
+                    <p>
+                        Now we can declare a new Anduril object, initialize it and load input files
+                    </p>
+                    <div class = "phyidle">
+                            >>> N = Anduril()
+                            <br>
+                            <br>
+                            >>> N.init("10-20",classreg = 1, gradd = 1, epoch = 100)
+                            <br>
+                            <br>
+                            >>> N.load("input.txt")        
+                    </div>
+                    <p>
+                        This initalizes a neural network with two hidden layers with 10 units in the first hidden layer and 20 units in the second. It is setup for regression as specified by the <span class = "b">classreg</span> variable, and since <span class = "b">gradd</span> is set to 1 it would train itself with minibatches for a 100 epochs.
+                    </p>
+                    <p>
+                        Now we can start training the network as follows:
+                    </p>
+                    <div class = "phyidle">
+                            >>> N.train_rprop(logfile = "out.log")     
+                    </div>
+                    <p>
+                        Or
+                    </p>
+                    <div class = "phyidle">
+                            >>> N.train_net(0.01,logfile = "out.log")     
+                    </div>
+                    <p>
+                        Now if I would like to test the network then I can do it as follows:
+                    </p>
+                    <div class = "phyidle">
+                            >>> N.test_net(1)     
+                    </div>
+                    <p>
+                        And if I would like to save it with the name "first_nn":
+                    </p>
+                    <div class = "phyidle">
+                            >>> N.savenet("first_nn")     
+                    </div>
+                    <br>   
+            </div>
+        </div>
+        <div id = "vbox" class = "cdiv">
+            <div id = "vboxtxt" class = "tdiv">
+                <h1>Publications</h1>
+            </div>
+        </div>
+    </body>
+</html>
