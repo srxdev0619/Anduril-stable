@@ -97,7 +97,7 @@
                 <h2>Training Methods</h2>
                     <p>
                         <div class = "phyidle">
-                        <span class = "c">Anduril</span>.train_net(epoch, lrate, mode = <span class = "v">1</span>, verbose = <span class = "v">1</span>, logfile = <span class = "v">" "</span>)
+                        <span class = "c">Anduril</span>.train_net(epoch, lrate, mode = <span class = "v">1</span>, verbose = <span class = "v">0</span>, logfile = <span class = "v">" "</span>)
                         </div>
                         <br>
                         This methods trains the neural network using standard backpropogation, the learning rate is specified by the variable <span class = "b">lrate</span>. <span class = "b">epoch</span> is used to specify the number of epochs for which the network is supposed to be trained. If <span class = "b">mode</span> is set to 1 it gives the current accuracy and/or RMSE of the neural net on the given data set. If <span class = "b">verbose</span> equals 1 more detailed output is produced giving the RMSE and accuracy as applicable after each training iteration.If a log file is specified, the output is stored in a file with the same name and a ".and" extention. This also stores a <i>.dat</i> file which contains the RMSE of each epoch, this file can be opened by a graphing program like <b>Grace</b> to examine the learning curve.
@@ -107,7 +107,7 @@
                     <br>
                     <p>
                         <div class = "phyidle">
-                        <span class = "c">Anduril</span>.train_rprop(epoch, mode = <span class = "v">1</span>, verbose = <span class = "v">1</span>, logfile = <span class = "v">" "</span>,tmax = <span class = "v">1.0</span>)
+                        <span class = "c">Anduril</span>.train_rprop(epoch, mode = <span class = "v">1</span>, verbose = <span class = "v">0</span>, logfile = <span class = "v">" "</span>,tmax = <span class = "v">1.0</span>)
                     </div>
                         <br>
                         This method trains the neural network using resilient backpropogation. <span class = "b">epoch</span> is used to specify the number of epochs for which the network is supposed to be trained. If <span class = "b">mode</span> is set to 1 it prints the RMSE and/or accuracy as the net is trained. The variable <span class = "b">tmax</span> sets an upper bound on the amount by which a particular weight can change. If <span class = "b">verbose</span> equals 1 more detailed output is produced giving the RMSE and accuracy as applicable after each training iteration. If a log file is specified, the output is stored in a file with the same name and a ".and" extention. This also stores a <i>.dat</i> file which contains the RMSE of each epoch, this file can be opened by a graphing program like <b>Grace</b> to examine the learning curve.
@@ -169,6 +169,15 @@
                         <br>
                         View all saved neural networks in the given directory.
                     </p>
+	             <p>
+	                <div class = "phyidle">
+                        <span class = "c">Anduril</span>.error_stats()
+                        </div>
+                        <br>
+			This method can be used to examine the performance of a network on the train and test data set. It plots a histogram of the difference between the actual value and predicted value along with their means and standard deviaitons. Currently this only works with single variable regression. The `num_bins` variable is used to specify the number of bins of the histograms.
+
+	            </p>
+	      
                 </div>
         </div>
         <div id = "ppc" class = "cdiv">
